@@ -59,6 +59,10 @@ pip install --upgrade pip
 pip install gensim pyLDAvis
 ```
 
+> **Note:**
+>
+> Please make sure to decompress the text data set in the ```data``` directory
+
 ### Tutorials
 
 - [Downloading and Extracting MD&A Text](Downloading_and_Extracting_MDA_Text.ipynb)
