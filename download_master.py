@@ -38,7 +38,7 @@ def download_master(start_year, end_year, dir_stem, URLstem):
 if __name__ == '__main__':
 
     # Set the directory where to save master indexes
-    dir_stem = 'Data/'
+    dir_stem = 'data/'
 
     # python download_master.py <start_year> <end_year>
 

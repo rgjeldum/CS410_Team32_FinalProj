@@ -189,8 +189,11 @@ class EDGAR_filing:
         for line in str(self.filing_raw_text).split('\n'):
             if line.find('STANDARD INDUSTRIAL CLASSIFICATION') > 0:
                 m = re.search('\[\d*\]', line)
-                self.sic = m.group(0).strip('[]')
-                print('\tFound {}'.format(self.sic))
+                if m:
+                    self.sic = m.group(0).strip('[]')
+                    print('\tFound {}'.format(self.sic))
+                else:
+                    print('\tMISSING!')
 
 
     # Locate the unique identifier for each EDGAR filing -- accession number
@@ -216,7 +219,7 @@ def remove_stopwords_list(word_list):
     global stopwords
 
     for word in word_list:
-        foo = re.sub(r'[\d\,\-\(\)\.\$\'\_]', '', word.lower())
+        foo = re.sub(r'[\d\,\(\)\.\$\'\_]', '', word.lower())
         if foo[-2:].lower() == 'ed':
             continue
         if len(foo) > 1 and foo not in stopwords:
